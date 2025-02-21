@@ -1,0 +1,17 @@
+{
+    "name": "dempseyj/php-mvc",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "John Dempsey",
+            "email": "john.dempsey@iadt.ie"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
