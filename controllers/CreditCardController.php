@@ -20,15 +20,8 @@ class CreditCardController extends Controller {
     }
 
     public function store(Request $request) {
-        $year = date('Y');
         $body = $request->getBody();
-        $rules = [
-            "name"      => "present|minlength:6|maxlength:256",
-            "number"    => "present|length:16",
-            "exp_month" => "present|integer|min:1|max:12",
-            "exp_year"  => "present|integer|min:$year|max:" . ($year + 5),
-            "cvv"       => "present|integer|length:3",
-        ];
+        $rules = CreditCard::rules();
         $validator = new Validator();
         $errors = $validator->validate($rules, $body);
         if ($errors) {
@@ -79,14 +72,7 @@ class CreditCardController extends Controller {
             $this->redirect('/cards');
         }
         else {
-            $year = date('Y');
-            $rules = [
-                "name"      => "present|minlength:6|maxlength:256",
-                "number"    => "present|length:16",
-                "exp_month" => "present|integer|min:1|max:12",
-                "exp_year"  => "present|integer|min:$year|max:" . ($year + 5),
-                "cvv"       => "present|integer|length:3",
-            ];
+            $rules = CreditCard::rules();
             $validator = new Validator();
             $errors = $validator->validate($rules, $body);
             if ($errors) {

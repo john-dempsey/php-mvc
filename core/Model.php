@@ -9,6 +9,7 @@ abstract class Model {
 
     abstract public static function tableName(): string;
     abstract public static function tableColumns(): array;
+    abstract public static function rules(): array;
 
     public static function prepare($sql) {
         return Application::$app->db->pdo->prepare($sql);
