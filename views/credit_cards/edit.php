@@ -1,14 +1,15 @@
 <?php
-    $this->title = 'Create New Credit Card';
+    $this->title = 'Edit Existing Credit Card';
 ?>
-<h1>Create New Credit Card</h1>
+<h1>Edit Existing Credit Card</h1>
 
-<form action="/cards/store" method="post">
+<form action="/cards/update" method="post">
+    <input type="hidden" name="id" value="<?= $card->id ?>" />
     <div class="row mb-4">
         <div class="col-6">
             <div class="form-outline">
                 <label class="form-label">Name on card</label>
-                <input type="text" name="name" class="form-control" value="<?= old("name") ?>" />
+                <input type="text" name="name" class="form-control" value="<?= old("name", $card->name) ?>" />
                 <span class="error"><?= error("name") ?></span>
             </div>
         </div>
@@ -18,7 +19,7 @@
         <div class="col-6">
             <div class="form-outline">
                 <label class="form-label">Credit card number</label>
-                <input type="text" name="number" class="form-control" value="<?= old("number") ?>" />
+                <input type="text" name="number" class="form-control" value="<?= old("number", $card->number) ?>" />
                 <span class="error"><?= error("number") ?></span>
             </div>
         </div>
@@ -31,7 +32,7 @@
                 <select name="exp_month" class="form-control">
                     <option value="">Month</option>
                     <?php for ($i = 1; $i <= 12; $i++) { ?>
-                        <option value="<?= $i ?>" <?= chosen("exp_month", $i) ? "selected" : "" ?>><?= $i ?></option>
+                        <option value="<?= $i ?>" <?= chosen("exp_month", $i, $card->exp_month) ? "selected" : "" ?>><?= $i ?></option>
                     <?php } ?>
                 </select>
                 <span class="error"><?= error("exp_month") ?></span>
@@ -43,7 +44,7 @@
                 <select name="exp_year" class="form-control">
                     <option value="">Year</option>
                     <?php for ($i = date('Y'); $i <= date('Y') + 5; $i++) { ?>
-                        <option value="<?= $i ?>" <?= chosen("exp_year", $i) ? "selected" : "" ?>><?= $i ?></option>
+                        <option value="<?= $i ?>" <?= chosen("exp_year", $i, $card->exp_year) ? "selected" : "" ?>><?= $i ?></option>
                     <?php } ?>
                 </select>
                 <span class="error"><?= error("exp_year") ?></span>
@@ -52,7 +53,7 @@
         <div class="col-2">
             <div class="form-outline">
                 <label class="form-label">CVV</label>
-                <input type="text" name="cvv" class="form-control" value="<?= old("cvv") ?>" />
+                <input type="text" name="cvv" class="form-control" value="<?= old("cvv", $card->cvv) ?>" />
                 <span class="error"><?= error("cvv") ?></span>
             </div>
         </div>

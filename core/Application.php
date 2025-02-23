@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+require_once __DIR__ . '/lib/global.php';
+
 use app\core\db\Database;
 use Exception;
 

@@ -24,9 +24,11 @@ $app = new Application($dir, $config);
 
 $app->router->get('/', [SiteController::class, 'home']);
 
-$app->router->get('/cards', [CreditCardController::class, 'index']);
-$app->router->get('/cards/create', [CreditCardController::class, 'create']);
-$app->router->post('/cards/store', [CreditCardController::class, 'store']);
+$app->router->get ('/cards',        [CreditCardController::class, 'index']);
+$app->router->get ('/cards/create', [CreditCardController::class, 'create']);
+$app->router->post('/cards/store',  [CreditCardController::class, 'store']);
+$app->router->get ('/cards/edit',   [CreditCardController::class, 'edit']);
+$app->router->post('/cards/update', [CreditCardController::class, 'update']);
 $app->router->post('/cards/delete', [CreditCardController::class, 'delete']);
 
 $app->run();

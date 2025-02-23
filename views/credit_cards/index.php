@@ -12,6 +12,7 @@
                 <th>Name</th>
                 <th>Number</th>
                 <th>Expiration</th>
+                <th>CVV</th>
                 <th></th>
             </tr>
         </thead>
@@ -21,10 +22,11 @@
                     <td><?php echo $card->name ?></td>
                     <td><?php echo $card->number ?></td>
                     <td><?php echo $card->exp_month ?>/<?php echo $card->exp_year ?></td>
+                    <td><?php echo $card->cvv ?></td>
                     <td>
-                        <a href="/cards/edit?id=<?php echo $card->id ?>" class="btn btn-sm btn-outline-primary">Edit</a>
+                        <a href="/cards/edit?id=<?= $card->id ?>" class="btn btn-sm btn-outline-primary">Edit</a>
                         <form action="/cards/delete" method="post" class="d-inline">
-                            <input type="hidden" name="id" value="<?php echo $card->id ?>">
+                            <input type="hidden" name="id" value="<?= $card->id ?>">
                             <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
                         </form>
                     </td>

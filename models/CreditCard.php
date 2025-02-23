@@ -10,7 +10,7 @@ class CreditCard extends Model {
         return 'credit_cards';
     }
     public static function tableColumns(): array {
-        return ['id', 'name', 'number', 'exp_month', 'exp_year'];
+        return ['id', 'name', 'number', 'exp_month', 'exp_year', 'cvv'];
     }
 
     public ?int $id = null;
@@ -18,4 +18,5 @@ class CreditCard extends Model {
     public string $number;
     public int $exp_month;
     public int $exp_year;
+    public int $cvv;
 }

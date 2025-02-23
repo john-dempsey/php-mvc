@@ -4,7 +4,10 @@ namespace app\core;
 
 class Request {
 
+    public Session $session;
+
     public function __construct() {
+        $this->session = new Session();
     }
 
     public function getPath() {
